@@ -1,4 +1,5 @@
 global using Microsoft.EntityFrameworkCore;
+using ShopOnline.Api.Data;
 
 namespace ShopOnline.Api
 {
@@ -14,6 +15,10 @@ namespace ShopOnline.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContextPool<ShopOnlineDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
 
             var app = builder.Build();
 
