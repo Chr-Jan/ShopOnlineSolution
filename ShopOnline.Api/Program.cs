@@ -1,3 +1,5 @@
+global using Microsoft.EntityFrameworkCore;
+
 namespace ShopOnline.Api
 {
     public class Program
