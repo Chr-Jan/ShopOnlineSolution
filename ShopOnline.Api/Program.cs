@@ -2,6 +2,8 @@ global using Microsoft.EntityFrameworkCore;
 global using ShopOnline.Api.Entities;
 global using ShopOnline.Api.Data;
 global using ShopOnline.Api.Repositories.Contacts;
+global using ShowOnline.Models.Dtos;
+using ShopOnline.Api.Repositories;
 
 namespace ShopOnline.Api
 {
@@ -22,7 +24,7 @@ namespace ShopOnline.Api
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
             );
 
-            builder.Services.AddScoped<IProductRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
