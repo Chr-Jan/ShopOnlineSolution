@@ -3,7 +3,11 @@ global using ShopOnline.Api.Entities;
 global using ShopOnline.Api.Data;
 global using ShopOnline.Api.Repositories.Contacts;
 global using ShowOnline.Models.Dtos;
-using ShopOnline.Api.Repositories;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using ShopOnline.Api.Extensions;
+global using System.Collections;
+global using ShopOnline.Api.Repositories;
 
 namespace ShopOnline.Api
 {

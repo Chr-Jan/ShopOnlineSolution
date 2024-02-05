@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections;
-
-namespace ShopOnline.Api.Controllers
+﻿namespace ShopOnline.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -29,13 +25,16 @@ namespace ShopOnline.Api.Controllers
                 }
                 else
                 {
+                    var productDtos = products.ConvertToDto(productCategories);
 
+                    return Ok(productDtos);
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status500InternalServerError, 
+                    "Error retrieving data from the database");
             }
         }
     }
